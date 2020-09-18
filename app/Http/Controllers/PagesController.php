@@ -9,7 +9,6 @@ class PagesController extends Controller
     //
     public function root()
     {
-        echo 1;
         return view('pages.root');
     }
 }
