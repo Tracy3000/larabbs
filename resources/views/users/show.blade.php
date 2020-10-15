@@ -34,8 +34,7 @@
                         <li class="nav-item"><a class="nav-link" href="#">Ta 的回复</a></li>
                     </ul>
                     @include('users._topics', ['topics' => $user->topics()->recentReplied()->paginate(5)])
+                </div>
             </div>
-
         </div>
-    </div>
 @stop
