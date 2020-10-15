@@ -5,6 +5,16 @@ class Topic extends Model
 {
     protected $fillable = ['title', 'body', 'category_id', 'excerpt', 'slug'];
 
+    /**
+     * 模型观察器另一种写法
+     */
+//    protected static function boot(){
+//        parent::boot();
+//        static::saving(function($model){
+//            $model->excerpt = make_excerpt($model->body);
+//        });
+//    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
