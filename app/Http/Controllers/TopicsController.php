@@ -45,7 +45,7 @@ class TopicsController extends Controller
 	    $topic->fill($request->all());//fill 方法会将传参的键值数组填充到模型的属性中
 	    $topic->user_id = Auth::id();
 	    $topic->save();
-		return redirect()->to($topic->link())>with('success', '帖子创建成功');
+		return redirect()->to($topic->link())->with('success', '帖子创建成功');
 	}
 
 	public function edit(Topic $topic)
