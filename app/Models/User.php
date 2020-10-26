@@ -28,6 +28,11 @@ class User extends Authenticatable implements MustVerifyEmailContract
         return $this->hasMany(Topic::class);
     }
 
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
     /**
      * 判断当前用户是否为对应模型所属用户
      * @param $model
