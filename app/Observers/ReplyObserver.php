@@ -26,10 +26,14 @@ class ReplyObserver
 //        $reply->topic()->increment('reply_count', 1);
 //        dd(\DB::getQueryLog());
 //        $reply->topic->increment('reply_count',1);
-        $reply->topic->updateReplyCount();
 
-        //通知话题作者有新的评论
-        $reply->topic->user->notify(new TopicReplied($reply));
+        //命令行运行下不进行这些操作
+        if(!app()->runningInConsole()){
+            $reply->topic->updateReplyCount();
+            //通知话题作者有新的评论
+            $reply->topic->user->notify(new TopicReplied($reply));
+        }
+
     }
 
     public function deleted(Reply $reply)
