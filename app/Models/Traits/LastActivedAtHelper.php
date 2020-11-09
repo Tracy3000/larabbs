@@ -17,9 +17,7 @@ trait LastActivedAtHelper
         $date = Carbon::now()->toDateString();
 
         $hash = $this->getHashFromDateString($date);
-
         $field = $this->getHashField();
-
         // 三元运算符，优先选择 Redis 的数据，否则使用数据库中
         $datetime = Redis::hGet($hash, $field) ? : $value;
 
