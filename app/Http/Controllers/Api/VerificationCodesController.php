@@ -13,7 +13,7 @@ class VerificationCodesController extends Controller
     {
         $phone = $request->phone;
         if(!app()->environment('production')){
-            $code = 1234;
+            $code = '1234';
         }else{
             //随机四位验证码
             $code = str_pad(random_int(1,9999),4,0,STR_PAD_LEFT);
