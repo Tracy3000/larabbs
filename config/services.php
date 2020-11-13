@@ -38,7 +38,7 @@ return [
     'wechat' => [
         'client_id' => env('WEIXIN_KEY'),
         'client_secret' => env('WEIXIN_SECRET'),
-        'redirext' => env('WEIXIN_REDIRECT_URI')
+        'redirect' => env('WEIXIN_REDIRECT_URI')
     ]
 
 ];
