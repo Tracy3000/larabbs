@@ -14,7 +14,6 @@ class AuthorizationsController extends Controller
 {
     public function socialStore($type, SocialAuthorizationRequest $request)
     {
-        dd($request->code);
         $driver = \Socialite::driver($type);
         try{
             if($code = $request->code){//只有授权码的情况
