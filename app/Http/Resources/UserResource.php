@@ -28,7 +28,7 @@ class UserResource extends JsonResource
         return $data;
     }
 
-    public function showSensitiveFileds()
+    public function showSensitiveFields()
     {
         $this->showSensitiveFields = true;
 
