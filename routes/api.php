@@ -86,7 +86,7 @@ Route::prefix('v1')
                         ->name('images.store');
 
                     //发布话题
-                    Route::resource('topics','TopicsController')->only(['store', 'update', 'destory']);
+                    Route::resource('topics','TopicsController')->only(['store', 'update', 'destroy']);
                 });
             });
 });

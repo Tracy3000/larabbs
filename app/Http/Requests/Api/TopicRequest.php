@@ -38,6 +38,10 @@ class TopicRequest extends FormRequest
                     'category_id' => 'exists:categories,id',
                 ];
                 break;
+            default :
+                return [
+
+                ];
         }
     }
 
