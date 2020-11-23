@@ -18,4 +18,13 @@ class TopicsController extends Controller
 
         return new TopicResource($topic);
     }
+
+    public function update(TopicRequest $request, Topic $topic)
+    {
+        $this->authorize('update',$topic);//策略判断此话题是否为当前用户的
+
+        $topic->update($request->all());
+
+        return new TopicResource($topic);
+    }
 }
