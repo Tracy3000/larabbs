@@ -21,6 +21,8 @@ class ReplyResource extends JsonResource
             'content' => $this->content,
             'created_at' => (string) $this->created_at,
             'updated_at' => (string) $this->updated_at,
+            'user' => new UserResource($this->whenLoaded('user')),//whenLoaded 当查询含有with方法时
+            'topic' => new TopicResource($this->whenLoaded('topic'))
         ];
     }
 }
