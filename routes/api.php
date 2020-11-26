@@ -97,6 +97,9 @@ Route::prefix('v1')
 
                     //通知同价
                     Route::get('notifications/stats','NotificationsController@stats')->name('notifications.stats');
+
+                    //标记消息已读
+                    Route::patch('user/read/notifications','NotificationsController@read')->name('user.notifications.read');
                 });
             });
 });
