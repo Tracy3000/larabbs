@@ -38,30 +38,18 @@ class TopicsController extends Controller
         return response(null,204);
     }
 
-    public function index(TopicRequest $request, Topic $topic)
+    public function index(TopicRequest $request, TopicQuery $query)
     {
-        $topics = QueryBuilder::for(Topic::class)
-            ->allowedIncludes('user', 'category')
-            ->allowedFilters([
-                'title',
-                AllowedFilter::exact('category_id'),
-                AllowedFilter::scope('withOrder')->default('recentReplied'),
-            ])
+        $topics = $query
             ->paginate();
 
         return TopicResource::collection($topics);
     }
 
-    public function userIndex(Request $request, User $user)
+    public function userIndex(Request $request, User $user,TopicQuery $query)
     {
-        $query = $user->topics()->getQuery();
-        $topics = QueryBuilder::for($query)
-            ->allowedIncludes('user', 'category')
-            ->allowedFilters([
-                'title',
-                AllowedFilter::exact('category_id'),
-                AllowedFilter::scope('withOrder')->default('recentReplied'),
-            ])
+        $topics = $query
+            ->where('user_id',$user->id)
             ->paginate();
 
         return TopicResource::collection($topics);
