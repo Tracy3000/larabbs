@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::prefix('v1')
     ->namespace('Api')
+    ->middleware('change-locale')
     ->name('api.v1.')
     ->group(function(){
         Route::middleware('throttle:' . config('api.rate_limits.sign'))
@@ -74,8 +75,8 @@ Route::prefix('v1')
                 Route::get('links','LinksController@index')->name('links.index');
 
                 //活跃用户
-
                 Route::get('actived/users','UsersController@activedIndex')->name('acived.users.index');
+
                 //登录后可以访问的接口
                 Route::middleware('auth:api')->group(function(){
                     //当前用户登录信息
@@ -110,4 +111,5 @@ Route::prefix('v1')
                     Route::get('user/permissions','PermissionsController@index')->name('user.permissions.index');
                 });
             });
+
 });
