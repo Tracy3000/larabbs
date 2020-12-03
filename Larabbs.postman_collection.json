@@ -1,0 +1,949 @@
+{
+	"info": {
+		"_postman_id": "87bbf03a-06dc-0018-48b4-47751d77a686",
+		"name": "Larabbs",
+		"description": "Larabbas 教程接口",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "天气接口",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://www.weather.com.cn/data/sk/101010100.html",
+					"protocol": "http",
+					"host": [
+						"www",
+						"weather",
+						"com",
+						"cn"
+					],
+					"path": [
+						"data",
+						"sk",
+						"101010100.html"
+					]
+				},
+				"description": "测试一下"
+			},
+			"response": []
+		},
+		{
+			"name": "发送短信验证码",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "phone",
+							"value": "15726816171",
+							"type": "text"
+						},
+						{
+							"key": "captcha_key",
+							"value": "captcha-nmKFB5DksDIxLEF",
+							"type": "text"
+						},
+						{
+							"key": "captcha_code",
+							"value": "A4yA1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{host}}/api/v1/verificationCodes",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"verificationCodes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "用户注册",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "verification_key",
+							"value": "verificationCode_maiNKxin6ZWoXcg",
+							"type": "text"
+						},
+						{
+							"key": "verification_code",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "hello👌",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "15726716179",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "dsfad123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "图片验证码",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "phone",
+							"value": "15726816423",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/captchas",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"captchas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "微信登录获取access_token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxf9fe71816bfab5b2&secret=16c90e20323ebe0600cbf887420ec3c4&code=091Adl000qePDK1NyH200dTZTO2Adl0f&grant_type=authorization_code",
+					"protocol": "https",
+					"host": [
+						"api",
+						"weixin",
+						"qq",
+						"com"
+					],
+					"path": [
+						"sns",
+						"oauth2",
+						"access_token"
+					],
+					"query": [
+						{
+							"key": "appid",
+							"value": "wxf9fe71816bfab5b2"
+						},
+						{
+							"key": "secret",
+							"value": "16c90e20323ebe0600cbf887420ec3c4"
+						},
+						{
+							"key": "code",
+							"value": "091Adl000qePDK1NyH200dTZTO2Adl0f"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "微信登录",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "access_token",
+							"value": "39_EAL3NjztRaayRWaQW07U7fCANTX_mVvldkA3hg4Lf8_Fr166_3glXJhh0oBAxplKnzRW2LbnXWa_2xD1H_3_lQ",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "openid",
+							"value": "od5A55mi1uZ1LC3rB_cu0TruMmXE",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "021oZP0w3VjsiV2pA81w3zEJTO2oZP03",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{host}}/api/v1/socials/:social_type/authorizations",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"socials",
+						":social_type",
+						"authorizations"
+					],
+					"variable": [
+						{
+							"key": "social_type",
+							"value": "wechat",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "登录",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "921146548@qq.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "passwor",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/authorizations",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"authorizations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刷新token",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_user1}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/authorizations/current",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"authorizations",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加图片",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sYXJhYmJzLnRlc3RcL2FwaVwvdjFcL2F1dGhvcml6YXRpb25zIiwiaWF0IjoxNjA1ODYyOTY5LCJleHAiOjE2MDU4NjY1NjksIm5iZiI6MTYwNTg2Mjk2OSwianRpIjoiR3VESkhFMXRieXQ3ZTBNWiIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.9sNt0q7Mk8wwC8eIEQ84ND09sKYUYItAtpyj23uMgeY"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "type",
+							"value": "avatar",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/images",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "某哥用户详情",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/users/3",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "当前登录用户信息",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": " Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sYXJhYmJzLnRlc3RcL2FwaVwvdjFcL2F1dGhvcml6YXRpb25zIiwiaWF0IjoxNjA1ODU0OTU3LCJleHAiOjE2MDU4NTg1NTcsIm5iZiI6MTYwNTg1NDk1NywianRpIjoiS2JJVjVaTEozZnhnbE80aiIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.FP9Or-1DvFrHjjlGdhBG2cdoSjg_GSHlMXTargq72r8"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/user",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "用户信息修改",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sYXJhYmJzLnRlc3RcL2FwaVwvdjFcL2F1dGhvcml6YXRpb25zIiwiaWF0IjoxNjA2ODkwNzA2LCJleHAiOjE2MDY4OTQzMDYsIm5iZiI6MTYwNjg5MDcwNiwianRpIjoiYlVmeWlVdUw0R3p1YU56MyIsInN1YiI6MSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.c7QiJUDYCSm_5oB5hJofVVsXFo1YcWetsAwPJX1upFQ"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "dsg",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "avatar_image_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "registration_id",
+							"value": "test_registration_id",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/user",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "分类列表",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/categories",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "话题发布",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": " Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sYXJhYmJzLnRlc3RcL2FwaVwvdjFcL2F1dGhvcml6YXRpb25zIiwiaWF0IjoxNjA2MTE2MDU2LCJleHAiOjE2MDYxMTk2NTYsIm5iZiI6MTYwNjExNjA1NiwianRpIjoidUxKMGpmZTM4TktFcFU1ciIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.uS7SHESkyaTWPQSwsE_pu7WZ4FMfxFGlYlnWsmTDgSc"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "adf",
+							"type": "text"
+						},
+						{
+							"key": "body",
+							"value": "test_content",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/topics",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"topics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "话题修改",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sYXJhYmJzLnRlc3RcL2FwaVwvdjFcL2F1dGhvcml6YXRpb25zIiwiaWF0IjoxNjA2MTE2MDU2LCJleHAiOjE2MDYxMTk2NTYsIm5iZiI6MTYwNjExNjA1NiwianRpIjoidUxKMGpmZTM4TktFcFU1ciIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.uS7SHESkyaTWPQSwsE_pu7WZ4FMfxFGlYlnWsmTDgSc"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "fuck",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/topics/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"topics",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "34",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "话题删除",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sYXJhYmJzLnRlc3RcL2FwaVwvdjFcL2F1dGhvcml6YXRpb25zIiwiaWF0IjoxNjA2MTIxOTM5LCJleHAiOjE2MDYxMjU1MzksIm5iZiI6MTYwNjEyMTkzOSwianRpIjoiY040SjVsWGVneWwwRUN6MyIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.aR6vijuFcL5jLQo3rU_FM_QuhTkzMrvhPP02cR9Owvs"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/topics/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"topics",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "34",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "话题列表",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/topics?include=user,category",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"topics"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "user,category"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "某个用户的话题列表",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/topics?include=user,category",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"topics"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "user,category"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "话题详情",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/topics/6?include=user",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"topics",
+						"6"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "话题回复",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sYXJhYmJzLnRlc3RcL2FwaVwvdjFcL2F1dGhvcml6YXRpb25zIiwiaWF0IjoxNjA2Mjg2Mzg2LCJleHAiOjE2MDYyODk5ODYsIm5iZiI6MTYwNjI4NjM4NiwianRpIjoiUGZ4UWR1WFBKZ204UVNDNSIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.0bTQyWfeLDMfOImDmsJIiMbGLSAsYHAWLgTTBW9_jfk"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "content",
+							"value": "testettett",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/topics/5/replies",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"topics",
+						"5",
+						"replies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除回复",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sYXJhYmJzLnRlc3RcL2FwaVwvdjFcL2F1dGhvcml6YXRpb25zIiwiaWF0IjoxNjA2Mjg2Mzg2LCJleHAiOjE2MDYyODk5ODYsIm5iZiI6MTYwNjI4NjM4NiwianRpIjoiUGZ4UWR1WFBKZ204UVNDNSIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.0bTQyWfeLDMfOImDmsJIiMbGLSAsYHAWLgTTBW9_jfk"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/topics/31/replies/5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"topics",
+						"31",
+						"replies",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "回复列表",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/topics/5/replies?include=user,topic",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"topics",
+						"5",
+						"replies"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "user,topic"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "用户回复列表",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/users/6/replies?include=topic.user",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"6",
+						"replies"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "topic.user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "消息通知列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sYXJhYmJzLnRlc3RcL2FwaVwvdjFcL2F1dGhvcml6YXRpb25zIiwiaWF0IjoxNjA2MzcxMDQ1LCJleHAiOjE2MDYzNzQ2NDUsIm5iZiI6MTYwNjM3MTA0NSwianRpIjoiNmhpbThXSlI0ZFBZaUJkNyIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.I8qCsg6KQLwsd657ss0uvcfVeVAuJEJE1e3Zx_pr0tA"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/notifications",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"notifications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "通知统计",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sYXJhYmJzLnRlc3RcL2FwaVwvdjFcL2F1dGhvcml6YXRpb25zIiwiaWF0IjoxNjA2MzcxMDQ1LCJleHAiOjE2MDYzNzQ2NDUsIm5iZiI6MTYwNjM3MTA0NSwianRpIjoiNmhpbThXSlI0ZFBZaUJkNyIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.I8qCsg6KQLwsd657ss0uvcfVeVAuJEJE1e3Zx_pr0tA"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/notifications/stats",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"notifications",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "消息已读",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sYXJhYmJzLnRlc3RcL2FwaVwvdjFcL2F1dGhvcml6YXRpb25zIiwiaWF0IjoxNjA2Mzc1NjQ3LCJleHAiOjE2MDYzNzkyNDcsIm5iZiI6MTYwNjM3NTY0NywianRpIjoiRXNaZjV2VUZGTkpqdHFvRyIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.vg4KV2m3KbYqbcZHkw4MpGtNuBLCP7jaC6fP3cPmbTQ"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/user/read/notifications",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"read",
+						"notifications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "权限列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sYXJhYmJzLnRlc3RcL2FwaVwvdjFcL2F1dGhvcml6YXRpb25zIiwiaWF0IjoxNjA2NzE4NTc3LCJleHAiOjE2MDY3MjIxNzcsIm5iZiI6MTYwNjcxODU3NywianRpIjoiVzNQMEFDT3Q2WE1ManA0TiIsInN1YiI6MSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.eK2c1u-ty429Plzv52cVmPZr0DMfE7V7vomf2uwsARg"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/v1/user/permissions",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"permissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "资源推荐",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/links",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"links"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取活跃用户",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/actived/users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"actived",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
