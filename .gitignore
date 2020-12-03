@@ -10,4 +10,8 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+<<<<<<< HEAD
 .idea/workspace.xml
+=======
+.idea/workspace.xml
+>>>>>>> tem
